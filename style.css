@@ -1,0 +1,452 @@
+/* Reset e estilos base */
+* {
+  margin :0;
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Bebas+Neue&display=swap');
+
+/* Variáveis Globais */
+:root {
+  --cor-fundo-claro: #FFFDF0;
+  --cor-fundo-escuro: ;
+  --cor-fundo-medio: #000000;
+  --cor-fundo-escuro: #F5D33F;
+
+  --cor-primaria: #F5D33F;
+  --cor-primaria-escura: #D4B216;
+
+  --cor-secundaria: #fff460c9;
+  
+  --cor-texto-escuro: #3E2723;
+  --cor-texto-suave: #daaf87;
+  --cor-texto-claro: #FFFFFF;
+  
+  --cor-borda: rgba(62, 39, 35, 0.15);
+  --fonte-principal: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --fonte-display: 'Bebas Neue', 'Arial Black', sans-serif;
+
+  --espacamento-secao: 6rem;
+  --raio-borda: 14px;
+  --raio-borda-pequeno: 8px;
+  --largura-maxima: 1140px;
+}
+
+body {
+  /* Confuigurar fonte */
+  font-family: var(--fonte-principal);
+  /* Cor de fundo */
+  background-color: var(--cor-texto-escuro);
+
+  color: var(--cor-texto-claro);
+
+  /* Altura do Texto */
+  line-height: 5;
+}
+
+a {
+  /* decoração do Texto */
+  text-decoration: none;
+  color: var(#011309);
+
+  /* animação */
+  transition:color 0.3s ease;
+}
+
+ul {
+  /* Estilização da Linha */
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  /* Ajusta a Largura do Texto */
+  font-weight: 700;
+}
+
+/* COMPONETES REUTILIZÁVEIS */
+
+.container{
+  max-width: var(--largura-maxima);
+
+  /* Espaçamento  externo */
+  margin: 0 auto;
+
+  /* Espaçamento Interno */
+  padding: 0 1.5rem;
+
+}
+
+/* botões */
+
+.btn {
+  padding: 0.85rem 2rem;
+
+  /* arredondamento dos cantos */
+  border-radius: var(--raio-borda);
+
+  font-weight: 600;
+
+  /* tamanho do texto */
+  font-size: 1rem;
+
+  /* Estliza o cursor */
+  cursor: pointer;
+
+  border: 2px solid transparent;
+
+  /* Animação */
+  transition: all 0.3s ease;
+}
+
+/* botões */
+.btn {
+
+}
+
+.btn-primario {
+  background-color: var(--cor-primaria);
+  color: #011309;
+  font-weight: 700;
+}
+
+
+/* Estilização quando passar o mouse por cima do botão primário efeito hover */
+.btn-primario:hover {
+  background-color: transparent;
+  color: var(--cor-primaria);
+  border-color:  var(--cor-primaria);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--cor-texto-claro);
+  border-color: var(--cor-fundo-claro);
+}
+
+
+/* Estilização quando passar o mouse por cima do botão secundário efeito hover */
+.btn-secundario:hover {
+  background-color: var(--cor-texto-claro);
+  color: var(--cor-fundo-escuro);
+
+}
+
+.btn-grande {
+  width: 100%;
+  padding: 1.1rem;
+  font-size: 1.1rem;
+}
+
+/* Bloco de cabeçalho padrão de cada seção..*/
+.secao-titulo {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.secao-titulo h2 {
+  font-family: var(--fonte-display);
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 1px;  /* Espaço entre as letras */
+  margin-bottom: 0.5rem;
+}
+
+.secao-titulo p {
+  color: var(--cor-texto-suave);
+  font-size: 1.05rem;
+}
+
+/* ----------------------------------------------------------------
+   4. NAVBAR
+   Menu superior fixado no topo da página.
+---------------------------------------------------------------- */
+#navbar {
+  position: sticky;      /* Fica colado no topo ao rolar a página */
+  top: 0;
+  padding: 1rem 0;
+  background-color: var(--cor-fundo-escuro);
+  border-bottom: 1px solid var(--cor-borda);
+  z-index: 100;          /* Garante que o menu fique sempre na frente dos outros elementos */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Logo na esquerda, links na direita */
+  align-items: center;            /* Alinha verticalmente no centro */
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.nav-logo {
+  font-family: var(--fonte-display);
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.logo-destaque {
+  color: var(--cor-primaria);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem; /* Espaço entre cada link do menu */
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.5px;
+}
+
+/* Fica verde ao passar o mouse */
+.nav-links a:hover {
+  color: var(--cor-primaria);
+}
+
+/* ----------------------------------------------------------------
+   5. HEADER (Hero Section)
+   Primeira dobra do site: tela de impacto com chamada e imagem.
+---------------------------------------------------------------- */
+header {
+  min-height: 100vh;     /* Ocupa pelo menos 100% da altura da tela */
+  display: flex;
+  align-items: center;   /* Centraliza o conteúdo verticalmente */
+  padding: 8rem 1.5rem 5rem;
+  background-color: var(--cor-fundo-medio);
+}
+
+.header-content {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4rem;             /* Distância entre a coluna de texto e a imagem */
+}
+
+.header-texto {
+  flex: 1;               /* Ocupa todo o espaço disponível na esquerda */
+}
+
+.header-imagem {
+  flex-shrink: 0;        /* Impede a imagem de ser esmagada se a tela diminuir */
+  width: 42%;
+  height: 380px;
+  border-radius: var(--raio-borda);
+  overflow: hidden;      /* Corta as bordas da foto para respeitar o border-radius */
+}
+
+.header-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* Preenche o quadrado sem distorcer ou esticar */
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Zoom suave na foto ao passar o mouse sobre o container */
+.header-imagem:hover .header-foto {
+  transform: scale(1.04);
+}
+
+.header-subtitulo {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase; /* Deixa tudo em MAIÚSCULAS */
+  color: var(--cor-primaria);
+  margin-bottom: 1.2rem;
+}
+
+.header-titulo {
+  font-family: var(--fonte-display);
+  font-size: 6rem;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.header-descricao {
+  font-size: 1.1rem;
+  color: var(--cor-texto-suave);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.header-botoes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;       /* Se não couber na largura, joga o segundo botão para baixo */
+}
+
+/* ----------------------------------------------------------------
+   6. CLASSES BASE DAS SEÇÕES
+   Alternância entre seções claras e escuras para dar contraste.
+---------------------------------------------------------------- */
+.secao {
+  padding: var(--espacamento-secao) 0;
+}
+
+.secao-escura {
+  background-color: var(--cor-fundo-escuro);
+  color: var(--cor-texto-claro);
+}
+
+.secao-clara {
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-texto-escuro);
+}
+
+.secao-clara .secao-titulo p {
+  color: #666;
+}
+
+/* ----------------------------------------------------------------
+   7. SECTION 1 — GRID DE SELEÇÕES
+   Cards organizados em 3 colunas iguais.
+---------------------------------------------------------------- */
+.grid-selecoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas de tamanho idêntico (1 fração cada) */
+  gap: 1.5rem;                           /* Espaço entre os cards */
+}
+
+.card-selecao {
+  background-color: rgba(255, 255, 255, 0.04); /* Fundo sutilmente translúcido */
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Card sobe levemente e ganha destaque de borda verde no hover */
+.card-selecao:hover {
+  transform: translateY(-6px);
+  border-color: var(--cor-primaria);
+}
+
+.card-imagem {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Pequeno zoom na foto da seleção ao passar o mouse */
+.card-selecao:hover .card-foto {
+  transform: scale(1.06);
+}
+
+.card-corpo {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;               /* Faz todos os corpos de card terem a mesma altura total */
+}
+
+.card-dia {
+  font-size: 0.78rem;
+  color: var(--cor-primaria);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Etiqueta amarela (badge) */
+.tag-palco {
+  display: inline-block;
+  margin-top: auto;      /* Empurra a tag sempre para o final do card */
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(255, 223, 0, 0.15);
+  color: var(--cor-secundaria);
+  border-radius: 50px;   /* Deixa a tag em formato de pílula redondinha */
+  font-size: 0.75rem;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.card-corpo h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.1rem;
+}
+
+.card-corpo p {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+
+
+/* time */
+.column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+ 
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+ 
+  .container {
+    padding: 0 16px;
+  }
+  
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+
